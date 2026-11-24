@@ -1,0 +1,29 @@
+body {
+  background: #fff;
+}
+
+.page-title {
+  margin-bottom: 1.5rem;
+}
+
+.bike-table td,
+.bike-table th {
+  vertical-align: middle;
+}
+
+.bike-actions {
+  white-space: nowrap;
+}
+
+.bike-actions .btn + .btn {
+  margin-left: 0.35rem;
+}
+
+.form-control,
+.form-select {
+  max-width: 100%;
+}
+
+.login-form {
+  margin-top: 3rem;
+}

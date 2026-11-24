@@ -1,0 +1,27 @@
+<div class="container login-form">
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <h2 class="mb-4">Connexion</h2>
+      @if (error) {
+        <div class="alert alert-danger" role="alert">
+          <strong>Nom d’utilisateur ou mot de passe incorrect.</strong>
+        </div>
+      }
+      <form #loginForm="ngForm" (ngSubmit)="signIn()">
+        <div class="mb-3">
+          <label class="form-label" for="username">Nom Utilisateur :</label>
+          <input type="text" id="username" name="username" class="form-control"
+            [(ngModel)]="username" autocomplete="username" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="password">Mot de passe :</label>
+          <input type="password" id="password" name="password" class="form-control"
+            [(ngModel)]="password" autocomplete="current-password" required>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary mt-2" [disabled]="loginForm.invalid">Connexion</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

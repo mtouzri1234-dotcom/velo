@@ -1,0 +1,60 @@
+<div class="page-title d-flex align-items-center justify-content-between">
+  <h2>Liste des Vélos</h2>
+  @if (auth.isAdmin()) {
+    <a class="btn btn-success" routerLink="/bikes/new">Ajouter un vélo</a>
+  }
+</div>
+
+@if (error()) {
+  <div class="alert alert-danger" role="alert">{{ error() }}</div>
+}
+
+<div class="card shadow mb-4">
+  <div class="card-body">
+    @if (loading()) {
+      <p>Chargement des vélos...</p>
+    } @else if (bikes().length === 0) {
+      <p>Aucun vélo trouvé.</p>
+    } @else {
+      <div class="table-responsive">
+        <table class="table table-striped bike-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Marque</th>
+              <th>Type</th>
+              <th>Taille</th>
+              <th>Prix</th>
+              <th>Stock</th>
+              <th>Catégorie</th>
+              <th>Électrique</th>
+              @if (auth.isAdmin()) { <th>Actions</th> }
+            </tr>
+          </thead>
+          <tbody>
+            @for (bike of bikes(); track bike.id) {
+              <tr>
+                <td>{{ bike.id }}</td>
+                <td>{{ bike.name }}</td>
+                <td>{{ bike.brand }}</td>
+                <td>{{ bike.bicycleType }}</td>
+                <td>{{ bike.frameSize }}</td>
+                <td>{{ bike.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
+                <td>{{ bike.stock }}</td>
+                <td>{{ bike.category.name }}</td>
+                <td>{{ bike.electric ? 'Oui' : 'Non' }}</td>
+                @if (auth.isAdmin()) {
+                  <td class="bike-actions">
+                    <a class="btn btn-success btn-sm" [routerLink]="['/bikes', bike.id, 'edit']">Modifier</a>
+                    <button class="btn btn-danger btn-sm" type="button" (click)="remove(bike)">Supprimer</button>
+                  </td>
+                }
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</div>
