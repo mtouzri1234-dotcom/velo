@@ -1,0 +1,13 @@
+com\bicycle\api\entities\Category.class
+com\bicycle\api\repos\UserRepository.class
+com\bicycle\api\BikeApiApplication.class
+com\bicycle\api\entities\AppUser.class
+com\bicycle\api\entities\Bike.class
+com\bicycle\api\entities\BikeProjection.class
+com\bicycle\api\restcontrollers\BikeRESTController.class
+com\bicycle\api\service\BikeServiceImpl.class
+com\bicycle\api\repos\BikeRepository.class
+com\bicycle\api\restcontrollers\CategoryRESTController.class
+com\bicycle\api\service\BikeService.class
+com\bicycle\api\repos\CategoryRepository.class
+com\bicycle\api\restcontrollers\AuthRESTController.class

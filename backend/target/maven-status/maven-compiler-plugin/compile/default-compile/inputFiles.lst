@@ -1,0 +1,13 @@
+C:\workspace\bike-api\src\main\java\com\bicycle\api\BikeApiApplication.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\entities\AppUser.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\entities\Bike.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\entities\BikeProjection.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\entities\Category.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\repos\BikeRepository.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\repos\CategoryRepository.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\repos\UserRepository.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\restcontrollers\AuthRESTController.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\restcontrollers\BikeRESTController.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\restcontrollers\CategoryRESTController.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\service\BikeService.java
+C:\workspace\bike-api\src\main\java\com\bicycle\api\service\BikeServiceImpl.java
