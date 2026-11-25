@@ -1,0 +1,66 @@
+<div class="container px-0">
+  <h2 class="mb-4">{{ isEditing ? 'Modifier un Vélo' : 'Ajouter un Vélo' }}</h2>
+
+  @if (error) {
+    <div class="alert alert-danger" role="alert">{{ error }}</div>
+  }
+
+  <form class="row g-3" #bikeForm="ngForm" (ngSubmit)="save()">
+    @if (isEditing) {
+      <div class="col-md-3">
+        <label class="form-label" for="bikeId">Id Vélo</label>
+        <input id="bikeId" class="form-control" [value]="bike.id" readonly>
+      </div>
+    }
+    <div class="col-md-5">
+      <label class="form-label" for="name">Nom Vélo</label>
+      <input id="name" class="form-control" name="name" [(ngModel)]="bike.name" required maxlength="100">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label" for="brand">Marque</label>
+      <input id="brand" class="form-control" name="brand" [(ngModel)]="bike.brand" required maxlength="80">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label" for="type">Type de vélo</label>
+      <select id="type" class="form-select" name="bicycleType" [(ngModel)]="bike.bicycleType" required>
+        <option value="" disabled>Choisir un type</option>
+        <option>Ville</option><option>VTT</option><option>Route</option><option>Gravel</option><option>Cargo</option><option>Électrique</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label" for="category">Catégorie</label>
+      <select id="category" class="form-select" name="categoryId" [(ngModel)]="selectedCategoryId" required>
+        <option [ngValue]="0" disabled>Choisir une catégorie</option>
+        @for (category of categories; track category.id) {
+          <option [ngValue]="category.id">{{ category.name }}</option>
+        }
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label" for="frameSize">Taille du cadre</label>
+      <select id="frameSize" class="form-select" name="frameSize" [(ngModel)]="bike.frameSize" required>
+        <option value="" disabled>Choisir une taille</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="price">Prix (TND)</label>
+      <input id="price" class="form-control" name="price" type="number" min="0.01" step="0.01" [(ngModel)]="bike.price" required>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="stock">Stock</label>
+      <input id="stock" class="form-control" name="stock" type="number" min="0" step="1" [(ngModel)]="bike.stock" required>
+    </div>
+    <div class="col-md-3 d-flex align-items-end pb-2">
+      <div class="form-check">
+        <input id="electric" class="form-check-input" type="checkbox" name="electric" [(ngModel)]="bike.electric">
+        <label class="form-check-label" for="electric">Assistance électrique</label>
+      </div>
+    </div>
+    <div class="col-12 mt-4">
+      <button class="btn btn-success" type="submit" [disabled]="bikeForm.invalid || saving">
+        {{ saving ? 'Enregistrement...' : (isEditing ? 'Modifier' : 'Ajouter') }}
+      </button>
+      <a class="btn btn-secondary ms-2" routerLink="/bikes">Annuler</a>
+    </div>
+  </form>
+</div>
